@@ -10,7 +10,6 @@ Source0:	http://wpitchoune.net/psensor/files/%{name}-%{version}.tar.gz
 BuildRequires:	GConf2-devel
 BuildRequires:	cairo-devel
 BuildRequires:	curl-devel
-BuildRequires:	gcc
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+3-devel
 BuildRequires:	json-c-devel
