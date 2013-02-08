@@ -7,11 +7,11 @@ Group:		X11/Applications
 URL:		http://wpitchoune.net/psensor
 Source0:	http://wpitchoune.net/psensor/files/%{name}-%{version}-src.tar.gz
 # Source0-md5:	6765f61fa2b0c4118e88b0771e628130
+Patch0:		make.patch
 BuildRequires:	GConf2-devel
 BuildRequires:	cairo-devel
 BuildRequires:	gcc
 BuildRequires:	gtk+2-devel
-BuildRequires:	sed >= 4.0
 BuildRequires:	lm_sensors-devel
 Requires:	hddtemp
 Requires:	lm_sensors
@@ -30,9 +30,7 @@ It is based on:
 
 %prep
 %setup -q
-
-%{__sed} -i -e 's,-Wall -O3,$(OPTFLAGS),' Makefile
-
+%patch0 -p1
 
 %build
 %{__make} \
