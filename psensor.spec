@@ -9,10 +9,17 @@ Source0:	http://wpitchoune.net/psensor/files/%{name}-%{version}.tar.gz
 # Source0-md5:	ddc21cbb36c6c622f7b5c1c7eb277374
 BuildRequires:	GConf2-devel
 BuildRequires:	cairo-devel
+BuildRequires:	curl-devel
 BuildRequires:	gcc
-BuildRequires:	gtk+2-devel
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+3-devel
+BuildRequires:	json-c-devel
 BuildRequires:	libXNVCtrl-devel
+BuildRequires:	libgtop-devel
+BuildRequires:	libmicrohttpd-devel
+BuildRequires:	libnotify-devel
 BuildRequires:	lm_sensors-devel
+BuildRequires:	pkgconfig
 Requires:	desktop-file-utils
 Requires:	gtk-update-icon-cache
 Requires:	hddtemp
