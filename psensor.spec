@@ -14,6 +14,7 @@ BuildRequires:	gcc
 BuildRequires:	gtk+2-devel
 BuildRequires:	libXNVCtrl-devel
 BuildRequires:	lm_sensors-devel
+Requires:	desktop-file-utils
 Requires:	hddtemp
 Requires:	lm_sensors
 ExclusiveArch:	%{ix86} %{x8664}
@@ -50,6 +51,12 @@ cp -p %{name}-32x32.png $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_desktop_database
+
+%postun
+%update_desktop_database
 
 %files
 %defattr(644,root,root,755)
