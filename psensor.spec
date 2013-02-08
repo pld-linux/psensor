@@ -12,6 +12,7 @@ BuildRequires:	GConf2-devel
 BuildRequires:	cairo-devel
 BuildRequires:	gcc
 BuildRequires:	gtk+2-devel
+BuildRequires:	libXNVCtrl-devel
 BuildRequires:	lm_sensors-devel
 Requires:	hddtemp
 Requires:	lm_sensors
@@ -34,6 +35,7 @@ It is based on:
 
 %build
 %{__make} \
+	LIB=%{_lib} \
 	CC="%{__cc}" \
 	OPTFLAGS="%{rpmcflags}"
 
