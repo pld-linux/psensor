@@ -1,0 +1,33 @@
+--- psensor-0.6.2.19/configure.ac~	2012-08-11 10:47:38.000000000 +0200
++++ psensor-0.6.2.19/configure.ac	2015-12-31 12:19:13.663175576 +0100
+@@ -125,7 +125,7 @@
+ # Check JSON, needed for remote monitoring
+ JSON_LIBS=
+ PKG_CHECK_MODULES(JSON, 
+-  json, 
++  json-c, 
+   [AC_DEFINE([HAVE_JSON],[1],[Use JSON])], 
+   [AC_MSG_WARN("Remote monitoring disabled, json missing")])
+ AM_CONDITIONAL(JSON, test -n "$JSON_LIBS")
+--- psensor-0.6.2.19/src/lib/psensor_json.h~	2012-08-11 10:47:20.000000000 +0200
++++ psensor-0.6.2.19/src/lib/psensor_json.h	2015-12-31 12:21:46.345226316 +0100
+@@ -19,7 +19,7 @@
+ #ifndef _PSENSOR_PSENSOR_JSON_H_
+ #define _PSENSOR_PSENSOR_JSON_H_
+ 
+-#include <json/json.h>
++#include <json-c/json.h>
+ 
+ #include "psensor.h"
+ 
+--- psensor-0.6.2.19/src/server/sysinfo.c~	2012-08-11 10:47:21.000000000 +0200
++++ psensor-0.6.2.19/src/server/sysinfo.c	2015-12-31 12:25:00.497806672 +0100
+@@ -21,7 +21,7 @@
+ #include <glibtop/netlist.h>
+ #include <glibtop/netload.h>
+ 
+-#include <json/json.h>
++#include <json-c/json.h>
+ 
+ #include "sysinfo.h"
+ 

@@ -1,0 +1,26 @@
+--- psensor-0.6.2.19/src/lib/log.c~	2012-08-11 10:47:20.000000000 +0200
++++ psensor-0.6.2.19/src/lib/log.c	2015-12-31 12:16:32.744319007 +0100
+@@ -83,7 +83,11 @@
+ 	}
+ 
+ 	if (file && lvl <= log_level) {
++#if defined(__ILP32__)
++		fprintf(file, "[%lld] %s %s\n", tv.tv_sec, lvl_str, buffer);
++#else
+ 		fprintf(file, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
++#endif
+ 		fflush(file);
+ 	}
+ 
+@@ -93,7 +97,11 @@
+ 		else
+ 			stdf = stdout;
+ 
++#if defined(__ILP32__)
++		fprintf(stdf, "[%lld] %s %s\n", tv.tv_sec, lvl_str, buffer);
++#else
+ 		fprintf(stdf, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
++#endif
+ 	}
+ }
+ 

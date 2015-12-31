@@ -1,0 +1,52 @@
+--- psensor-0.6.2.19/configure.ac~	2015-12-31 12:20:05.000000000 +0100
++++ psensor-0.6.2.19/configure.ac	2015-12-31 12:20:38.767654738 +0100
+@@ -4,7 +4,7 @@
+ AC_PREREQ([2.64])
+ AC_INIT([psensor], [0.6.2.19],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net/psensor])
+ 
+-AM_INIT_AUTOMAKE([-Wall -Werror gnu])
++AM_INIT_AUTOMAKE([-Wall])
+ 
+ AC_CONFIG_SRCDIR([src/compat.h])
+ AC_CONFIG_HEADERS([config.h])
+@@ -15,6 +15,7 @@
+ 
+ # Checks lib build
+ AC_PROG_RANLIB
++AM_PROG_AR
+ 
+ # Checks for header files.
+ AC_PATH_X
+--- psensor-0.6.2.19/src/lib/Makefile.am~	2012-08-11 10:47:20.000000000 +0200
++++ psensor-0.6.2.19/src/lib/Makefile.am	2015-12-31 12:23:20.733150672 +0100
+@@ -13,7 +13,7 @@
+ 	p_io.h p_io.c \
+ 	url.c url.h
+ 
+-AM_CPPFLAGS = -Wall -Werror
++AM_CPPFLAGS = -Wall
+ 
+ if NVIDIA
+ libpsensor_a_SOURCES += nvidia.c
+--- psensor-0.6.2.19/src/Makefile.am~	2012-08-11 10:47:21.000000000 +0200
++++ psensor-0.6.2.19/src/Makefile.am	2015-12-31 12:23:51.160221404 +0100
+@@ -8,7 +8,7 @@
+ endif
+ endif
+ 
+-AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
++AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
+ 	-I$(top_srcdir)/src/lib \
+ 	-I$(top_srcdir)/src/unity \
+ 	$(GTK_CFLAGS)\
+--- psensor-0.6.2.19/src/server/Makefile.am~	2012-08-11 10:47:21.000000000 +0200
++++ psensor-0.6.2.19/src/server/Makefile.am	2015-12-31 12:24:04.713734531 +0100
+@@ -1,7 +1,7 @@
+ bin_PROGRAMS =  psensor-server
+ psensor_server_SOURCES = server.c server.h
+ 
+-AM_CPPFLAGS = -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
++AM_CPPFLAGS = -Wall -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
+ 	-I$(top_srcdir)/src \
+ 	-I$(top_srcdir)/src/lib \
+ 	$(SENSORS_CFLAGS)\

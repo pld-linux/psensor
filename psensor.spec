@@ -1,12 +1,15 @@
 Summary:	A Graphical Temperature Monitor
 Name:		psensor
 Version:	0.6.2.19
-Release:	4
+Release:	5
 License:	GPL v2
 Group:		X11/Applications
 URL:		http://wpitchoune.net/psensor
 Source0:	http://wpitchoune.net/psensor/files/%{name}-%{version}.tar.gz
 # Source0-md5:	ddc21cbb36c6c622f7b5c1c7eb277374
+Patch0:		x32.patch
+Patch1:		json-c.patch
+Patch2:		ac.patch
 BuildRequires:	GConf2-devel
 BuildRequires:	cairo-devel
 BuildRequires:	curl-devel
@@ -38,10 +41,18 @@ It is based on:
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
