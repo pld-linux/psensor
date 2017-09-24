@@ -1,7 +1,7 @@
 Summary:	A Graphical Temperature Monitor
 Name:		psensor
 Version:	0.6.2.19
-Release:	5
+Release:	6
 License:	GPL v2
 Group:		X11/Applications
 URL:		http://wpitchoune.net/psensor
