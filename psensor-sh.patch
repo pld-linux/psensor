@@ -1,0 +1,20 @@
+--- psensor-1.2.0/configure.ac.orig	2016-12-20 00:39:54.000000000 +0100
++++ psensor-1.2.0/configure.ac	2018-05-18 19:48:41.908911654 +0200
+@@ -67,13 +67,13 @@
+ 		  [AC_MSG_WARN("gtk missing psensor will not be built")])
+ AM_CONDITIONAL(GTK, test -n "$GTK_LIBS")
+ # ensure that only allowed headers are included
+-GTK_CFLAGS+=" -DGTK_DISABLE_SINGLE_INCLUDES "
++GTK_CFLAGS="$GTK_CFLAGS -DGTK_DISABLE_SINGLE_INCLUDES "
+ # ensure that no gtk/dk deprecated symbols are used
+-GTK_CFLAGS+=" -DGDK_DISABLE_DEPRECATED "
++GTK_CFLAGS="$GTK_CFLAGS -DGDK_DISABLE_DEPRECATED "
+ # do not enable flag because GtkStatusIcon is deprecated
+-#GTK_CFLAGS+=" -DGTK_DISABLE_DEPRECATED "
++#GTK_CFLAGS="$GTK_CFLAGS -DGTK_DISABLE_DEPRECATED "
+ # ensure use of accessors
+-GTK_CFLAGS+=" -DGSEAL_ENABLE "
++GTK_CFLAGS="$GTK_CFLAGS -DGSEAL_ENABLE "
+ AC_SUBST(GTK_CFLAGS)
+ AC_SUBST(GTK_LIBS)
+ 
