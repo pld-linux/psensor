@@ -10,7 +10,7 @@ Summary:	A Graphical Temperature Monitor
 Summary(pl.UTF-8):	Graficzny monitor temperatury
 Name:		psensor
 Version:	1.2.0
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://wpitchoune.net/psensor/files/%{name}-%{version}.tar.gz
